@@ -82,7 +82,7 @@ class Client:
         raise RuntimeError(f"AHledger still unavailable after retries: {path}")
 
     def pricetable(self, market_dotted: str, etag: str | None = None):
-        slash = market_dotted.replace(".", "/")
+        slash = market_dotted
         r = self.get(f"/v1/pricetable/{slash}", etag=etag)
         if r.status_code == 304:
             return None, etag, max_age(r.headers.get("Cache-Control"))

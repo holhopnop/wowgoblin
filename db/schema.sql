@@ -3,13 +3,13 @@ CREATE TABLE IF NOT EXISTS price_snapshot (
   market        text        NOT NULL,           -- dotted id, e.g. forever.pvp.horde.us
   item_id       integer     NOT NULL,
   observed_at   timestamptz NOT NULL,           -- table timestamp from AHledger header
-  median        integer,
-  min_buyout    integer,
-  quantity      integer,
-  median_7d     integer,
-  median_30d    integer,
-  low_30d       integer,
-  high_30d      integer,
+  median        bigint,
+  min_buyout    bigint,
+  quantity      bigint,
+  median_7d     bigint,
+  median_30d    bigint,
+  low_30d       bigint,
+  high_30d      bigint,
   sales_per_day numeric(10,1),                  -- estimate; NULL when unknown
   PRIMARY KEY (market, item_id, observed_at)
 );
